@@ -45,3 +45,17 @@ ProjectSettings/AndroidResolverDependencies.xml
 
 # Rider IDE files
 /.idea/
+
+### Unity ###
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Ss]amples/
+**/MonoBleedingEdge/

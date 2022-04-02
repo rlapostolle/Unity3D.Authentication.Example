@@ -24,3 +24,24 @@ The following packages were updated:
   com.unity.textmeshpro from version 1.3.0 to 2.1.4
 The following packages were removed:
   com.unity.package-manager-ui@2.0.7
+
+=== Sat Mar  5 18:20:10 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.14.1 to 1.15.7
+  com.unity.ide.rider from version 1.2.1 to 2.0.7
+  com.unity.ide.visualstudio from version 2.0.11 to 2.0.14
+  com.unity.purchasing from version 4.1.1 to 4.1.2
+  com.unity.textmeshpro from version 2.1.4 to 3.0.6
+  com.unity.timeline from version 1.2.18 to 1.4.8
+
+=== Mon Mar  7 13:52:41 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.15.7 to 1.15.12

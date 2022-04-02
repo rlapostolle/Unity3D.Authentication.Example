@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ namespace Assets
         private bool _signinCancelled;
         private DateTime _watchForReplyStartTime;
         private bool _watchForReply;
-        private readonly UnityAuthClient _authClient = new UnityAuthClient();
+        private readonly UnityAuthClient _authClient = new UnityAuthClient(true);
         private bool _signedIn;
         private const double MaxSecondsToWaitForAuthReply = 3;
 
@@ -150,6 +151,30 @@ namespace Assets
                 _replyReceived = true;
                 Debug.Log("SignInBehavior::OnAuthReply: " + value);
                 _authClient.Browser.OnAuthReply(value as string);
+            }
+        }
+
+        public async void CheckToken()
+        {
+            var res = await _authClient.GetIdentity("dzzdzd");
+            if (res.IsError)
+                Debug.LogWarning(res.Error);
+            else
+            {
+                foreach(var claim in res.Claims)
+                {
+                    Debug.Log(claim.Type + ":" + claim.Value);
+                }
+            }
+            res = await _authClient.GetIdentity();
+            if (res.IsError)
+                Debug.LogWarning(res.Error);
+            else
+            {
+                foreach (var claim in res.Claims)
+                {
+                    Debug.Log(claim.Type + ":" + claim.Value);
+                }
             }
         }
     }

@@ -10,13 +10,16 @@ namespace Assets
     {
         private static bool _initialized;
 
-        public static void Initialize()
+        public static void Initialize(bool trust_certificate = false)
         {
             if (!_initialized)
             {
                 // Mono in Unity needs a little help to validate server certificate.
                 // See: https://stackoverflow.com/a/33391290/325442
-                ServicePointManager.ServerCertificateValidationCallback = MonoRemoteCertificateValidationCallback;
+                if(!trust_certificate)
+                    ServicePointManager.ServerCertificateValidationCallback = MonoRemoteCertificateValidationCallback;
+                else
+                    ServicePointManager.ServerCertificateValidationCallback = (s, c, h, p) => true;
                 Debug.Log("CertificateHandler initialized");
                 _initialized = true;
             }
